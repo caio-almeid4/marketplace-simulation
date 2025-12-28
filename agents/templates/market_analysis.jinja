@@ -1,0 +1,18 @@
+PUBLIC BOARD WITH ALL BROADSCASTED OFFERS FROM OTHER AGENTS:
+
+{{% for offer in public_board %}}
+{{ loop.index }}
+- Supplier: {{ offer.supplier }}
+- Item: {{ offer.item }}
+- Quantity: {{ offer.quantity }}
+- Price: ${{ "%.2f"|format(offer.price) }}
+
+{% endfor %}
+
+MESSAGES THAT YOU RECEIVE IN YOUR INBOX:
+
+{{% for message in inbox %}}
+{{ loop.index }}
+- Sender: {{ message.sender }}
+- Content: {{ message.content }}
+
