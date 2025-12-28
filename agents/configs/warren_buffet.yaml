@@ -14,7 +14,6 @@ decision_biases:
 temperature: 0.2
 initial_state:
   cash: 5000
-  inventory:
-    apple: 20
-    chip: 20
-    gold: 10
+  apple: 20
+  chip: 20
+  gold: 10
