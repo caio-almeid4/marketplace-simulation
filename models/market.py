@@ -1,15 +1,15 @@
-from schemas.offer import Offer
 from typing import List
+
+from schemas.offer import Offer
 
 
 class Market:
-    
-    
+
     def __init__(self):
         self.public_board: List[Offer] = []
-    
+
     def add_offer(self, offer: Offer) -> None:
         self.public_board.append(offer)
-    
+
     def clean(self) -> None:
-        self.public_board.clear()   
+        self.public_board.clear()
