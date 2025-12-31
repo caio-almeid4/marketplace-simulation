@@ -1,0 +1,9 @@
+## INBOX (NOTIFICATIONS)
+Messages from the system or other agents:
+
+{% for message in inbox %}
+* **From:** {{ message.sender }}
+    **Message:** "{{ message.content }}"
+{% else %}
+(You have no new messages in your inbox.)
+{% endfor %}
