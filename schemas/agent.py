@@ -1,4 +1,4 @@
-from typing import Literal, List
+from typing import List, Literal
 
 from pydantic import BaseModel, Field
 
@@ -12,7 +12,8 @@ class PersonalityInfo(BaseModel):
     strategy: str
     custom_instructions: List[str]
     decision_biases: List[str]
-    
+
+
 class AgentConfig(BaseModel):
     name: str
     temperature: float = Field(ge=0, le=1)

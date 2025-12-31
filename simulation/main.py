@@ -1,12 +1,12 @@
 from random import shuffle
 from typing import Dict
 
+from loguru import logger
+
 from models.agent import Agent
 from models.market import Market
 from schemas.simulation import SimulationSettings
 from utils.tools_factory import create_trade_tools
-
-from loguru import logger
 
 
 class Simulation:
@@ -28,8 +28,7 @@ class Simulation:
                 logger.info(f'{agent.upper()} turn')
                 market_data = self.market.format_repository()
                 self.agents[agent].run_turn(market_data=market_data, round_num=i)
-                
-                
+
             if i % 2 == 0:
                 self.market.clear_repository()
 

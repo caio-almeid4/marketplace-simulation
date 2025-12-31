@@ -1,5 +1,4 @@
 from typing import Dict, Literal
-from pydantic_core import ValidationError 
 
 from langchain.tools import BaseTool, tool
 
@@ -12,7 +11,10 @@ def create_trade_tools(agent: Agent, market: Market) -> Dict[str, BaseTool]:
 
     @tool
     def create_public_offer(
-        item: Literal['apple', 'chip', 'gold'], quantity: int, price: float, offer_message: str
+        item: Literal['apple', 'chip', 'gold'],
+        quantity: int,
+        price: float,
+        offer_message: str,
     ) -> str:
         """Creates a public offer for a specific item in the market.
 
@@ -27,11 +29,13 @@ def create_trade_tools(agent: Agent, market: Market) -> Dict[str, BaseTool]:
         """
         try:
             offer = OfferDraft(
-                supplier=agent.name, item=item, quantity=quantity, price=price, message=offer_message
+                supplier=agent.name,
+                item=item,
+                quantity=quantity,
+                price=price,
+                message=offer_message,
             )
             return market.create_offer(offer=offer)
-        
-
 
         except ValueError as e:
             return f'Error: {e}'

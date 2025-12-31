@@ -1,15 +1,21 @@
 from typing import Dict
 
+from loguru import logger
+
 from models.agent import Agent
 from schemas.offer import OfferDraft, TrackedOffer
+from trade_service import TradeService
 from utils.id_generator import SerialIDGenerator
 from utils.render_template import render_template
-from trade_service import TradeService
-from loguru import logger
 
 
 class Market:
-    def __init__(self, agents: Dict[str, Agent], id_gen: SerialIDGenerator, trade_service: TradeService):
+    def __init__(
+        self,
+        agents: Dict[str, Agent],
+        id_gen: SerialIDGenerator,
+        trade_service: TradeService,
+    ):
         self._repository: Dict[int, TrackedOffer] = {}
         self.agents = agents
         self._id_gen = id_gen
@@ -47,9 +53,9 @@ class Market:
         offer = self._repository.get(offer_id, None)
         if not offer:
             raise ValueError(f"The offer with ID {offer_id} doens'nt exist")
-        
+
         if buyer_name == offer.supplier:
-            raise ValueError('You can\'t accept your own offer')
+            raise ValueError("You can't accept your own offer")
 
         buyer_inventory = self.agents[buyer_name].inventory
         supplier_inventory = self.agents[offer.supplier].inventory
@@ -79,14 +85,10 @@ class Market:
         supplier_inventory.cash += offer.price
         supplier_item_quantity = getattr(supplier_inventory, offer.item)
         setattr(supplier_inventory, offer.item, supplier_item_quantity - offer.quantity)
-        
-        self.trade_service.create_trade_registry(
-            buyer_name=buyer_name,
-            offer = offer
-        )
+
+        self.trade_service.create_trade_registry(buyer_name=buyer_name, offer=offer)
 
         logger.info(f"""
             {buyer_name} bought {offer.quantity} {offer.item} from {offer.supplier} 
-            for {offer.price} dollars.')"""
-        )
+            for {offer.price} dollars.')""")
         return f'Offer accepted. Now you have {new_buyer_item_quantity} {offer.item}'

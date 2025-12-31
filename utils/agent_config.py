@@ -20,7 +20,7 @@ def load_agent_config(name: str):
         name=name,
         temperature=config['temperature'],
         inventory=Inventory(**config['inventory']),
-        personality_info=personality_info
+        personality_info=personality_info,
     )
 
 

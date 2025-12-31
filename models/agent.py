@@ -1,17 +1,16 @@
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 from langchain.tools import BaseTool
-from langchain_core.messages import AnyMessage, HumanMessage, SystemMessage, ToolMessage
+from langchain_core.messages import HumanMessage, SystemMessage, ToolMessage
 from langchain_openai import ChatOpenAI
 from langgraph.graph import END, START, StateGraph
 from langgraph.types import Command
 
-from schemas.agent import AgentAnalysis, AgentConfig
-from utils.render_template import render_template
 from agents.state import AgentState
+from schemas.agent import AgentAnalysis, AgentConfig
 from schemas.inventory import Inventory
 from schemas.message import Message
-from typing import List
+from utils.render_template import render_template
 
 
 class Agent:
@@ -34,24 +33,24 @@ class Agent:
 
     def _get_internal_memory(self) -> str:
         return render_template(
-                'memory',
-                {'internal_monologue': self.internal_monologue},
-            )
+            'memory',
+            {'internal_monologue': self.internal_monologue},
+        )
 
     def _get_inventory(self) -> str:
         return render_template('inventory', self.inventory.model_dump())
 
     def _get_inbox(self) -> str:
         return render_template('inbox', {'inbox': self.inbox})
-    
+
     def _get_system_prompt(self) -> SystemMessage:
         system_prompt_info = self.config.personality_info.model_dump()
         system_prompt_info['name'] = self.name
         system_prompt = render_template('system_prompt', system_prompt_info)
         return SystemMessage(system_prompt)
-    
+
     def _build_context(self, market_data: str, round: int) -> HumanMessage:
-        
+
         context = f'-------- Round {round} --------'
         context += '\n'
         context += self._get_internal_memory()
@@ -61,15 +60,31 @@ class Agent:
         context += market_data
         context += '\n\n'
         context += self._get_inbox()
-        
+
         return HumanMessage(context)
-    
+
     def run_turn(self, market_data: str, round_num: int) -> Dict[str, Any]:
 
-        messages = [self._get_system_prompt(), self._build_context(market_data, round=round_num)]
-        initial_state = AgentState(internal_monologue=self.internal_monologue, messages=messages, next_step='')
-        
-        result = self.graph.invoke(initial_state)
+        messages = [
+            self._get_system_prompt(),
+            self._build_context(market_data, round=round_num),
+        ]
+        initial_state = AgentState(
+            internal_monologue=self.internal_monologue, messages=messages, next_step=''
+        )
+
+        result = self.graph.invoke(
+            initial_state,
+            config={
+                'run_name': f'{self.name} turn',
+                'tags': [self.name, f'Round_{round_num}'],
+                'metadata': {
+                    'inventory': self.inventory.model_dump(),
+                    'current_round': round_num,
+                    'monologue': self.internal_monologue,
+                },
+            },
+        )
         self.internal_monologue = result['internal_monologue']
         self.inbox.clear()
         return result
