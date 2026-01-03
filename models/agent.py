@@ -18,16 +18,18 @@ class Agent:
         self.config = config
         self.name = self.config.name
         self.inventory: Inventory = self.config.inventory
+        self.energy = self.config.energy
         self.inbox: List[Message] = []
         self.internal_monologue = ''
-        self.llm = self._get_llm()
+        self.llm = self._get_llm(model='gpt-5-mini')
         self.graph = self._build_graph()
         self.tools = tools
+        self.is_alive = True
 
-    def _get_llm(self):
+    def _get_llm(self, model: str):
 
         return ChatOpenAI(
-            model='gpt-4o-mini',
+            model=model,
             temperature=self.config.temperature,
         )
 
@@ -37,8 +39,10 @@ class Agent:
             {'internal_monologue': self.internal_monologue},
         )
 
-    def _get_inventory(self) -> str:
-        return render_template('inventory', self.inventory.model_dump())
+    def _get_general_status(self) -> str:
+        general_status = self.inventory.model_dump()
+        general_status['energy'] = self.energy
+        return render_template('general_status', general_status)
 
     def _get_inbox(self) -> str:
         return render_template('inbox', {'inbox': self.inbox})
@@ -49,13 +53,22 @@ class Agent:
         system_prompt = render_template('system_prompt', system_prompt_info)
         return SystemMessage(system_prompt)
 
+    def _get_survival_protocol(self) -> SystemMessage:
+        survival_prompt = render_template('survival_protocol', {'energy': self.energy})
+        return SystemMessage(survival_prompt)
+    
+    def _get_bankrupt_protocol(self, rounds_left: int) -> SystemMessage:
+        info = {'cash': self.inventory.cash, 'rounds_left': rounds_left}
+        bankrupt_prompt = render_template('bankrupt_protocol', info)
+        return SystemMessage(bankrupt_prompt)
+
     def _build_context(self, market_data: str, round: int) -> HumanMessage:
 
         context = f'-------- Round {round} --------'
         context += '\n'
         context += self._get_internal_memory()
         context += '\n\n'
-        context += self._get_inventory()
+        context += self._get_general_status()
         context += '\n\n'
         context += market_data
         context += '\n\n'
@@ -69,6 +82,16 @@ class Agent:
             self._get_system_prompt(),
             self._build_context(market_data, round=round_num),
         ]
+        if self.config.operational_cost:
+            rounds_left_by_cash = int(
+                self.inventory.cash / self.config.operational_cost
+            )
+            if rounds_left_by_cash < 3:
+                messages.append(self._get_bankrupt_protocol(rounds_left_by_cash))
+            
+        if self.energy < 3:
+            messages.append(self._get_survival_protocol())
+            
         initial_state = AgentState(
             internal_monologue=self.internal_monologue, messages=messages, next_step=''
         )
@@ -109,9 +132,11 @@ class Agent:
 
         return Command(
             update={
-                'internal_monologue': response['updated_monologue'],
-                'next_step': response['next_step'],
-            }
+                'internal_monologue': response.get(
+                    'updated_monologue', state['internal_monologue']
+                    ),
+                'next_step': response.get('next_step', 'wait'),
+            }   
         )
 
     def _routing_node(self, state: AgentState) -> Command:
@@ -148,3 +173,12 @@ class Agent:
                 )
             )
         return tool_messages
+    
+    def collect_operational_payment(self) -> bool:
+        
+        if self.inventory.cash < self.config.operational_cost:
+            self.inventory.cash = 0
+            return False
+        
+        self.inventory.cash -= self.config.operational_cost
+        return True

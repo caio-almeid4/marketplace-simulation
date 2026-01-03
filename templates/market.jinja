@@ -1,11 +1,22 @@
+##LATEST MARKET ACTIVITY (THIS ROUND)
+Here is the real-time log of transactions that happened recently:
+
+{% for trade in recent_trades %}
+**DEAL:** {{ trade.buyer }} bought **{{ trade.quantity }} {{ trade.item|upper }}** from {{ trade.supplier }} @ **${{ trade.price }}**
+{% else %}
+(No trades occurred in this round yet. The market is quiet.)
+{% endfor %}
+
+---
+
 ## MARKET PUBLIC BOARD
 Here are the active offers broadcasted by other agents.
 Use the `ID` to accept an offer using the `accept_offer` tool.
 
 {% for offer in repository.values() %}
 > **OFFER #{{ offer.id }}**
-> - **Item:** {{ offer.item }}
-> - **Qty:** {{ offer.quantity }}
+> - **Item:** {{ offer.item|upper }}
+> - **Quantity:** {{ offer.quantity }}
 > - **Price:** ${{ "%.2f"|format(offer.price) }}
 > - **Seller:** {{ offer.supplier }}
 > -------------------------

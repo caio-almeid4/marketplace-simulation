@@ -1,6 +1,6 @@
 from typing import List, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, PositiveInt
 
 from schemas.inventory import Inventory
 
@@ -19,6 +19,8 @@ class AgentConfig(BaseModel):
     temperature: float = Field(ge=0, le=1)
     inventory: Inventory
     personality_info: PersonalityInfo
+    energy: PositiveInt
+    operational_cost: float = Field(ge=0)
 
 
 class AgentResponse:

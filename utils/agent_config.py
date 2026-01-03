@@ -14,13 +14,13 @@ def load_agent_config(name: str):
     with open(filepath, 'r', encoding='utf-8') as f:
         config = yaml.safe_load(f)
 
-    personality_info = PersonalityInfo(**config)
-
     return AgentConfig(
         name=name,
         temperature=config['temperature'],
         inventory=Inventory(**config['inventory']),
-        personality_info=personality_info,
+        personality_info=PersonalityInfo(**config),
+        energy=config['energy'],
+        operational_cost=config['operational_cost']
     )
 
 

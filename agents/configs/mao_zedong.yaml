@@ -12,6 +12,8 @@ decision_biases:
   - Sunk Cost Fallacy (Will keep buying Chips even if losing money)
   - Authority Bias (Follows his own dogma strictly regardless of market logic)
 temperature: 0.8
+energy: 12
+operational_cost: 120
 inventory:
   cash: 1000
   apple: 50

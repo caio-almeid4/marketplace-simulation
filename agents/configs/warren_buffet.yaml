@@ -12,6 +12,8 @@ decision_biases:
   - Endowment Effect (Values what he owns more than cash)
   - Status Quo Bias (Prefer to hold rather than trade frequently)
 temperature: 0.1
+energy: 30
+operational_cost: 50
 inventory:
   cash: 10000
   apple: 0
