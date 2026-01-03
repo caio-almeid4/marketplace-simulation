@@ -1,5 +1,6 @@
 from datetime import datetime
 
+from pydantic import BaseModel
 from sqlalchemy import func
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -18,3 +19,11 @@ class Trade:
     price: Mapped[float] = mapped_column(nullable=False)
     message: Mapped[str]
     created_at: Mapped[datetime] = mapped_column(init=False, server_default=func.now())
+
+
+class UnitTrade(BaseModel):
+    supplier: str
+    buyer: str
+    item: str
+    quantity: int
+    price: float
