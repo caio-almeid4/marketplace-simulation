@@ -20,3 +20,10 @@ The `price` parameter is the **TOTAL price for ALL units**, NOT per-unit!
 - Buy 2 gold at $180 each → `create_buy_offer("gold", 2, 360, "...")`
 
 **Formula:** total_price = quantity × price_per_unit
+
+## BUY OFFER CASH RESERVATION WARNING
+When you create a buy offer, the TOTAL PRICE is **IMMEDIATELY DEDUCTED** from your available cash and **LOCKED** until:
+- Someone accepts your offer (you get the items), OR
+- You cancel the offer (cash is returned)
+
+**DANGER:** If you lock too much cash in buy offers, you may not have enough to pay your **${{ operational_cost }}** operational cost, leading to **BANKRUPTCY → DEATH**. Always keep enough free cash for at least a few rounds of operational costs!
