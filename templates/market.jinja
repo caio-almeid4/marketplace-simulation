@@ -1,4 +1,4 @@
-##LATEST MARKET ACTIVITY (THIS ROUND)
+## LATEST MARKET ACTIVITY (THIS ROUND)
 Here is the real-time log of transactions that happened recently:
 
 {% for trade in recent_trades %}
@@ -9,19 +9,32 @@ Here is the real-time log of transactions that happened recently:
 
 ---
 
-## MARKET PUBLIC BOARD
-Here are the active offers broadcasted by other agents.
-Use the `ID` to accept an offer using the `accept_offer` tool.
+## SELL OFFERS
+Agents offering items for sale. Use `accept_sell_offer(offer_id)` to buy.
 
-{% for offer in repository.values() %}
-> **OFFER #{{ offer.id }}**
-> - **Item:** {{ offer.item|upper }}
-> - **Quantity:** {{ offer.quantity }}
-> - **Price:** ${{ "%.2f"|format(offer.price) }}
+{% for offer in repository.values() if offer.offer_type == 'sell' %}
+> **SELL OFFER #{{ offer.id }}**
+> - **Item:** {{ offer.quantity }} {{ offer.item|upper }}
+> - **Total Price:** ${{ "%.2f"|format(offer.price) }} (${{ "%.2f"|format(offer.price / offer.quantity) }}/unit)
 > - **Seller:** {{ offer.supplier }}
 > -------------------------
 {% else %}
-(The market board is currently empty. No active offers.)
+(No active sell offers.)
+{% endfor %}
+
+---
+
+## BUY OFFERS
+Agents looking to buy items. Use `accept_buy_offer(offer_id)` to sell to them.
+
+{% for offer in repository.values() if offer.offer_type == 'buy' %}
+> **BUY OFFER #{{ offer.id }}**
+> - **Wants:** {{ offer.quantity }} {{ offer.item|upper }}
+> - **Offering:** ${{ "%.2f"|format(offer.price) }} (${{ "%.2f"|format(offer.price / offer.quantity) }}/unit)
+> - **Buyer:** {{ offer.supplier }}
+> -------------------------
+{% else %}
+(No active buy offers.)
 {% endfor %}
 
 ---

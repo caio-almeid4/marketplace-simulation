@@ -9,6 +9,7 @@ class OfferDraft(BaseModel):
     quantity: PositiveInt
     price: PositiveFloat
     message: str = Field(default='')
+    offer_type: Literal['sell', 'buy'] = Field(default='sell')
 
 
 class TrackedOffer(OfferDraft):
