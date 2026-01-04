@@ -20,6 +20,23 @@ The core challenge this project solves is the **simulation of "human" irrational
 
 The system is built using Python and LangGraph, following a strictly modular architecture that separates agent cognition from simulation state management.
 
+### Project Structure
+
+├── agents/
+│   ├── configs/            # Agent personality configurations (.yaml)
+│   └── state.py            # LangGraph state definitions
+├── config/
+│   └── broadcast_events.yaml # Random market news events
+├── experiment/             # Simulation outputs (Generated Plots & Logs)
+├── models/                 # Core domain logic (Agent, Market entities)
+├── schemas/                # Pydantic data structures (Offers, Trades, Messages)
+├── services/               # Business logic (TradeService, PlotService, etc.)
+├── simulation/             # Main orchestration loop
+├── templates/              # Jinja2 System Prompts (The "Brain" of the agents)
+├── utils/                  # Helper functions (Tools factory, rendering)
+├── run_simulation.py       # Main entry point script
+└── pyproject.toml          # Project dependencies
+
 ### Core Components
 
 1. **The Agent (Cognitive Layer)**
