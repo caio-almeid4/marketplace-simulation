@@ -11,6 +11,7 @@ from models.market import Market
 from schemas.simulation import SimulationSettings
 from services.broadcast_service import BroadcastService
 from services.inventory_service import InventoryService
+from services.plot_service import PlotService
 from services.trade_service import TradeService
 from simulation import Simulation
 from utils.agent_config import get_agents_configs
@@ -94,6 +95,11 @@ def main(rounds: int) -> None:
             'dead': len(sim.dead),
         }
         print_banner(f'SIMULATION COMPLETE ({rounds} rounds)', stats=stats)
+
+        # Generate analytics plots
+        plot_service = PlotService(session=session)
+        plot_service.generate_all_plots(output_dir='plots/')
+        logger.info('Generated simulation plots in plots/ directory')
 
 
 if __name__ == '__main__':
