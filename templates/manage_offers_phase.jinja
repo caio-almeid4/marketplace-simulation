@@ -3,11 +3,20 @@ You are now in the **MANAGE OFFERS** node.
 - Your analysis is done.
 - TOOLS ARE NOW UNLOCKED.
 - Execute the strategy defined in your Monologue immediately.
-- If you decided to 'wait', respond with an empty message or generic text.
-"""
 
-## REMEMBER ABOUT THE ECONOMY AND ASSETS
-There are only 3 types of tradable assets besides Cash:
-* **Apple:** Common item, low unit value. (Unit Base price: 5 cash)
-* **Chip:** Industrial item, medium value. (Unit Base price: 50 cash)
-* **Gold:** Scarce resource, high value (store of value). (Unit Base price: 200 cash)
+## PRICING REFERENCE (per unit)
+| Asset | Base Price |
+|-------|------------|
+| Apple | $5         |
+| Chip  | $50        |
+| Gold  | $200       |
+
+## CRITICAL: HOW TO SET PRICES
+The `price` parameter is the **TOTAL price for ALL units**, NOT per-unit!
+
+**Examples:**
+- Sell 10 apples at $5 each → `create_public_offer("apple", 10, 50, "...")`
+- Sell 5 chips at $60 each → `create_public_offer("chip", 5, 300, "...")`
+- Buy 2 gold at $180 each → `create_buy_offer("gold", 2, 360, "...")`
+
+**Formula:** total_price = quantity × price_per_unit

@@ -5,9 +5,12 @@ The simulation happens in sequential turns. The market reacts in real-time.
 
 ## 2. THE ECONOMY AND ASSETS
 There are only 3 types of tradable assets besides Cash:
-* **Apple:** Common item, low unit value.
-* **Chip:** Industrial item, medium value.
-* **Gold:** Scarce resource, high value (store of value).
+* **Apple:** Common item. Base price: **$5 per unit**.
+* **Chip:** Industrial item. Base price: **$50 per unit**.
+* **Gold:** Scarce resource, store of value. Base price: **$200 per unit**.
+
+**PRICING RULE:** When creating offers, the `price` parameter is the **TOTAL price for ALL units**.
+Example: To sell 10 apples at $5 each → quantity=10, price=50 (not price=5!).
 
 ## 3. YOUR WORKFLOW & TOOLS
 Your turn is divided into distinct phases. Tools are NOT available all the time.
