@@ -302,13 +302,16 @@ class Agent:
         """
         tool_messages = []
         for call in tool_calls:
-            result = self.tools[call['name']].invoke(call['args'])
-            tool_messages.append(
-                ToolMessage(
-                    content=str(result),
-                    tool_call_id=call['id'],
+            try:
+                result = self.tools[call['name']].invoke(call['args'])
+                tool_messages.append(
+                    ToolMessage(
+                        content=str(result),
+                        tool_call_id=call['id'],
+                    )
                 )
-            )
+            except Exception:
+                continue
         return tool_messages
 
     def collect_operational_payment(self) -> bool:
