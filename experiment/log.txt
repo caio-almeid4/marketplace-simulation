@@ -1,0 +1,468 @@
+❯ uv run run_simulation.py --rounds 20
+
+============================================
+        MARKETPLACE SIMULATION START        
+              10 agents loaded              
+============================================
+
+
+──────────────────────────────────────────────────
+───────────── ROUND 1/20 (10 agents) ─────────────
+──────────────────────────────────────────────────
+  NEWS: Economic Uncertainty
+
+  >> NICK_LAND | $1000 | A:20 C:0 G:0 | E:8
+
+  >> JOHN_KEYNES | $4000 | A:0 C:0 G:0 | E:20
+
+  >> MADRUGA | $200 | A:15 C:2 G:0 | E:5
+
+  >> MAO_ZEDONG | $1000 | A:50 C:0 G:10 | E:12
+     [BUY #1] mao_zedong wants 2 CHIP for $200.00
+     [SELL #2] mao_zedong offers 10 GOLD @ $1500.00
+
+  >> DENG_XIAOPING | $2500 | A:10 C:10 G:5 | E:15
+     TRADE: deng_xiaoping bought 10 GOLD from mao_zedong @ $1500.00
+     TRADE: deng_xiaoping sold 2 CHIP to mao_zedong @ $200.00
+
+  >> JULIUS | $100 | A:10 C:5 G:2 | E:10
+     [SELL #3] julius offers 10 APPLE @ $50.00
+     [SELL #4] julius offers 5 CHIP @ $200.00
+     [SELL #5] julius offers 2 GOLD @ $400.00
+
+  >> CHICO_BENTO | $500 | A:100 C:0 G:0 | E:50
+
+  >> JORDAN_BELFORT | $1500 | A:0 C:0 G:0 | E:15
+     TRADE: jordan_belfort bought 10 APPLE from julius @ $50.00
+     TRADE: jordan_belfort bought 5 CHIP from julius @ $200.00
+
+  >> WARREN_BUFFET | $10000 | A:0 C:0 G:0 | E:30
+     TRADE: warren_buffet bought 2 GOLD from julius @ $400.00
+
+  >> MISES | $5000 | A:0 C:0 G:0 | E:25
+     [BUY #6] mises wants 25 GOLD for $5000.00
+     BANKRUPT: MISES ran out of cash!
+
+  Round 1 Summary: 5 trades | 0 offers
+
+──────────────────────────────────────────────────
+───────────── ROUND 2/20 (9 agents) ──────────────
+──────────────────────────────────────────────────
+  NEWS: Economic Uncertainty
+
+  >> MADRUGA | $160 | A:14 C:2 G:0 | E:7
+     [SELL #7] madruga offers 10 APPLE @ $50.00
+
+  >> WARREN_BUFFET | $9550 | A:0 C:0 G:2 | E:29
+     TRADE: warren_buffet bought 10 APPLE from madruga @ $50.00
+     [BUY #8] warren_buffet wants 5 CHIP for $250.00
+
+  >> DENG_XIAOPING | $1100 | A:10 C:8 G:15 | E:14
+     TRADE: deng_xiaoping sold 5 CHIP to warren_buffet @ $250.00
+
+  >> NICK_LAND | $850 | A:20 C:0 G:0 | E:7
+     [SELL #9] nick_land offers 10 APPLE @ $30.00
+
+  >> JORDAN_BELFORT | $1050 | A:10 C:5 G:0 | E:14
+     TRADE: jordan_belfort bought 10 APPLE from nick_land @ $30.00
+     [SELL #10] jordan_belfort offers 20 APPLE @ $120.00
+
+  >> MAO_ZEDONG | $2180 | A:50 C:2 G:0 | E:11
+     [BUY #11] mao_zedong wants 10 CHIP for $500.00
+
+  >> JULIUS | $740 | A:0 C:0 G:0 | E:9
+
+  >> CHICO_BENTO | $500 | A:100 C:0 G:0 | E:49
+
+  >> JOHN_KEYNES | $3800 | A:0 C:0 G:0 | E:19
+     TRADE: john_keynes bought 20 APPLE from jordan_belfort @ $120.00
+
+  Round 2 Summary: 4 trades | 1 offers
+
+──────────────────────────────────────────────────
+───────────── ROUND 3/20 (9 agents) ──────────────
+──────────────────────────────────────────────────
+  NEWS: Gold Rush
+
+  >> MADRUGA | $170 | A:4 C:2 G:0 | E:6
+     [SELL #12] madruga offers 4 APPLE @ $20.00
+
+  >> CHICO_BENTO | $500 | A:100 C:0 G:0 | E:48
+
+  >> JOHN_KEYNES | $3480 | A:20 C:0 G:0 | E:18
+     TRADE: john_keynes bought 4 APPLE from madruga @ $20.00
+
+  >> WARREN_BUFFET | $9200 | A:10 C:5 G:2 | E:28
+
+  >> DENG_XIAOPING | $1250 | A:10 C:3 G:15 | E:13
+     [SELL #13] deng_xiaoping offers 3 CHIP @ $750.00
+
+  >> MAO_ZEDONG | $1560 | A:50 C:2 G:0 | E:10
+     [BUY #14] mao_zedong wants 10 CHIP for $1500.00
+     BANKRUPT: MAO_ZEDONG ran out of cash!
+
+  >> JORDAN_BELFORT | $940 | A:0 C:5 G:0 | E:13
+     TRADE: jordan_belfort bought 3 CHIP from deng_xiaoping @ $750.00
+     [SELL #15] jordan_belfort offers 3 CHIP @ $900.00
+     BANKRUPT: JORDAN_BELFORT ran out of cash!
+
+  >> NICK_LAND | $730 | A:10 C:0 G:0 | E:6
+     [SELL #16] nick_land offers 10 APPLE @ $40.00
+     [BUY #17] nick_land wants 5 CHIP for $250.00
+
+  >> JULIUS | $730 | A:0 C:0 G:0 | E:8
+
+  Round 3 Summary: 2 trades | 2 offers
+
+──────────────────────────────────────────────────
+───────────── ROUND 4/20 (7 agents) ──────────────
+──────────────────────────────────────────────────
+  NEWS: Chip Factory Delays
+
+  >> JULIUS | $720 | A:0 C:0 G:0 | E:7
+
+  >> CHICO_BENTO | $500 | A:100 C:0 G:0 | E:47
+
+  >> DENG_XIAOPING | $1900 | A:10 C:0 G:15 | E:12
+     [SELL #18] deng_xiaoping offers 5 GOLD @ $1000.00
+
+  >> MADRUGA | $150 | A:0 C:2 G:0 | E:5
+     [SELL #19] madruga offers 2 CHIP @ $100.00
+
+  >> JOHN_KEYNES | $3260 | A:24 C:0 G:0 | E:17
+     TRADE: john_keynes bought 10 APPLE from nick_land @ $40.00
+
+  >> WARREN_BUFFET | $9150 | A:10 C:5 G:2 | E:27
+     TRADE: warren_buffet sold 5 CHIP to nick_land @ $250.00
+     [BUY #20] warren_buffet wants 2 GOLD for $800.00
+
+  >> NICK_LAND | $370 | A:0 C:5 G:0 | E:5
+     [SELL #21] nick_land offers 5 CHIP @ $200.00
+
+  Round 4 Summary: 2 trades | 4 offers
+
+──────────────────────────────────────────────────
+───────────── ROUND 5/20 (7 agents) ──────────────
+──────────────────────────────────────────────────
+  NEWS: Trade Tensions Rising
+
+  >> CHICO_BENTO | $500 | A:100 C:0 G:0 | E:46
+
+  >> JULIUS | $710 | A:0 C:0 G:0 | E:6
+
+  >> WARREN_BUFFET | $8550 | A:10 C:0 G:2 | E:26
+     TRADE: warren_buffet bought 5 GOLD from deng_xiaoping @ $1000.00
+     TRADE: warren_buffet bought 2 CHIP from madruga @ $100.00
+
+  >> MADRUGA | $210 | A:0 C:0 G:0 | E:4
+
+  >> DENG_XIAOPING | $2800 | A:10 C:0 G:10 | E:11
+     TRADE: deng_xiaoping sold 2 GOLD to warren_buffet @ $800.00
+     [SELL #22] deng_xiaoping offers 5 GOLD @ $1000.00
+
+  >> JOHN_KEYNES | $3020 | A:34 C:0 G:0 | E:16
+     TRADE: john_keynes bought 5 CHIP from nick_land @ $200.00
+
+  >> NICK_LAND | $420 | A:0 C:0 G:0 | E:4
+
+  Round 5 Summary: 4 trades | 1 offers
+
+──────────────────────────────────────────────────
+───────────── ROUND 6/20 (7 agents) ──────────────
+──────────────────────────────────────────────────
+  NEWS: Gold Heist Reported
+
+  >> MADRUGA | $170 | A:0 C:0 G:0 | E:3
+     [BUY #23] madruga wants 10 APPLE for $50.00
+     [BUY #24] madruga wants 2 CHIP for $100.00
+     BANKRUPT: MADRUGA ran out of cash!
+
+  >> WARREN_BUFFET | $7400 | A:10 C:2 G:9 | E:25
+     TRADE: warren_buffet bought 5 GOLD from deng_xiaoping @ $1000.00
+
+  >> CHICO_BENTO | $500 | A:100 C:0 G:0 | E:45
+     [SELL #25] chico_bento offers 10 APPLE @ $100.00
+     [SELL #26] chico_bento offers 10 APPLE @ $100.00
+     [SELL #27] chico_bento offers 10 APPLE @ $100.00
+     [SELL #28] chico_bento offers 10 APPLE @ $100.00
+     [SELL #29] chico_bento offers 10 APPLE @ $100.00
+
+  >> NICK_LAND | $270 | A:0 C:0 G:0 | E:3
+     TRADE: nick_land bought 10 APPLE from chico_bento @ $100.00
+
+  >> DENG_XIAOPING | $4500 | A:10 C:0 G:3 | E:10
+     TRADE: deng_xiaoping bought 10 APPLE from chico_bento @ $100.00
+
+  >> JOHN_KEYNES | $2620 | A:34 C:5 G:0 | E:15
+     TRADE: john_keynes bought 10 APPLE from chico_bento @ $100.00
+     TRADE: john_keynes bought 10 APPLE from chico_bento @ $100.00
+
+  >> JULIUS | $700 | A:0 C:0 G:0 | E:5
+
+  Round 6 Summary: 5 trades | 1 offers
+
+──────────────────────────────────────────────────
+───────────── ROUND 7/20 (6 agents) ──────────────
+──────────────────────────────────────────────────
+  NEWS: Markets Calm
+
+  >> JULIUS | $690 | A:0 C:0 G:0 | E:4
+
+  >> JOHN_KEYNES | $2220 | A:54 C:5 G:0 | E:14
+     TRADE: john_keynes bought 10 APPLE from chico_bento @ $100.00
+
+  >> NICK_LAND | $20 | A:9 C:0 G:0 | E:5
+     [SELL #30] nick_land offers 9 APPLE @ $36.00
+     BANKRUPT: NICK_LAND ran out of cash!
+
+  >> DENG_XIAOPING | $4300 | A:20 C:0 G:3 | E:9
+
+  >> WARREN_BUFFET | $6350 | A:10 C:2 G:14 | E:24
+
+  >> CHICO_BENTO | $1000 | A:50 C:0 G:0 | E:44
+
+  Round 7 Summary: 1 trades | 0 offers
+
+──────────────────────────────────────────────────
+───────────── ROUND 8/20 (5 agents) ──────────────
+──────────────────────────────────────────────────
+  NEWS: Chip Factory Delays
+
+  >> JULIUS | $680 | A:0 C:0 G:0 | E:3
+
+  >> CHICO_BENTO | $1000 | A:50 C:0 G:0 | E:43
+
+  >> JOHN_KEYNES | $1920 | A:64 C:5 G:0 | E:13
+
+  >> DENG_XIAOPING | $4200 | A:20 C:0 G:3 | E:8
+
+  >> WARREN_BUFFET | $6300 | A:10 C:2 G:14 | E:23
+
+  Round 8 Summary: 0 trades | 0 offers
+
+──────────────────────────────────────────────────
+───────────── ROUND 9/20 (5 agents) ──────────────
+──────────────────────────────────────────────────
+  NEWS: Trade Tensions Rising
+
+  >> JULIUS | $670 | A:0 C:0 G:0 | E:2
+
+  >> WARREN_BUFFET | $6250 | A:10 C:2 G:14 | E:22
+
+  >> DENG_XIAOPING | $4100 | A:20 C:0 G:3 | E:7
+
+  >> CHICO_BENTO | $1000 | A:50 C:0 G:0 | E:42
+     [BUY #31] chico_bento wants 5 GOLD for $1000.00
+
+  >> JOHN_KEYNES | $1720 | A:64 C:5 G:0 | E:12
+     [BUY #32] john_keynes wants 20 APPLE for $100.00
+     [BUY #33] john_keynes wants 5 CHIP for $250.00
+
+  Round 9 Summary: 0 trades | 3 offers
+
+──────────────────────────────────────────────────
+───────────── ROUND 10/20 (5 agents) ─────────────
+──────────────────────────────────────────────────
+  NEWS: Gold Rush
+
+  >> JULIUS | $660 | A:0 C:0 G:0 | E:1
+
+  >> DENG_XIAOPING | $4000 | A:20 C:0 G:3 | E:6
+
+  >> JOHN_KEYNES | $1170 | A:64 C:5 G:0 | E:11
+     [BUY #34] john_keynes wants 20 APPLE for $100.00
+     [BUY #35] john_keynes wants 5 CHIP for $250.00
+
+  >> WARREN_BUFFET | $6200 | A:10 C:2 G:14 | E:21
+
+  >> CHICO_BENTO | $0 | A:50 C:0 G:0 | E:41
+     [SELL #36] chico_bento offers 20 APPLE @ $100.00
+     DIED: JULIUS ran out of energy!
+
+  Round 10 Summary: 0 trades | 6 offers
+
+──────────────────────────────────────────────────
+───────────── ROUND 11/20 (4 agents) ─────────────
+──────────────────────────────────────────────────
+  NEWS: Gold Heist Reported
+
+  >> DENG_XIAOPING | $3900 | A:20 C:0 G:3 | E:5
+     TRADE: deng_xiaoping bought 20 APPLE from chico_bento @ $100.00
+
+  >> WARREN_BUFFET | $6150 | A:10 C:2 G:14 | E:20
+
+  >> JOHN_KEYNES | $620 | A:64 C:5 G:0 | E:10
+
+  >> CHICO_BENTO | $100 | A:30 C:0 G:0 | E:40
+     [SELL #37] chico_bento offers 20 APPLE @ $100.00
+
+  Round 11 Summary: 1 trades | 6 offers
+
+──────────────────────────────────────────────────
+───────────── ROUND 12/20 (4 agents) ─────────────
+──────────────────────────────────────────────────
+  NEWS: Technology Boom
+
+  >> WARREN_BUFFET | $6100 | A:10 C:2 G:14 | E:19
+     TRADE: warren_buffet bought 20 APPLE from chico_bento @ $100.00
+
+  >> JOHN_KEYNES | $420 | A:64 C:5 G:0 | E:9
+     [SELL #38] john_keynes offers 20 APPLE @ $80.00
+     [SELL #39] john_keynes offers 5 CHIP @ $200.00
+
+  >> CHICO_BENTO | $200 | A:10 C:0 G:0 | E:39
+
+  >> DENG_XIAOPING | $3700 | A:39 C:0 G:3 | E:7
+     [SELL #40] deng_xiaoping offers 2 GOLD @ $1600.00
+     [BUY #41] deng_xiaoping wants 5 CHIP for $250.00
+
+  Round 12 Summary: 1 trades | 9 offers
+
+──────────────────────────────────────────────────
+───────────── ROUND 13/20 (4 agents) ─────────────
+──────────────────────────────────────────────────
+  NEWS: Chip Factory Delays
+
+  >> DENG_XIAOPING | $3350 | A:39 C:0 G:1 | E:6
+     TRADE: deng_xiaoping bought 20 APPLE from john_keynes @ $80.00
+
+  >> JOHN_KEYNES | $300 | A:44 C:0 G:0 | E:8
+     [SELL #42] john_keynes offers 44 APPLE @ $160.00
+
+  >> CHICO_BENTO | $200 | A:10 C:0 G:0 | E:38
+
+  >> WARREN_BUFFET | $5950 | A:30 C:2 G:14 | E:18
+     TRADE: warren_buffet bought 5 CHIP from john_keynes @ $200.00
+
+  Round 13 Summary: 2 trades | 8 offers
+
+──────────────────────────────────────────────────
+───────────── ROUND 14/20 (4 agents) ─────────────
+──────────────────────────────────────────────────
+  NEWS: Economic Uncertainty
+
+  >> WARREN_BUFFET | $5700 | A:30 C:7 G:14 | E:17
+     TRADE: warren_buffet bought 2 GOLD from deng_xiaoping @ $1600.00
+
+  >> CHICO_BENTO | $200 | A:10 C:0 G:0 | E:37
+
+  >> DENG_XIAOPING | $4770 | A:59 C:0 G:1 | E:5
+     [SELL #43] deng_xiaoping offers 1 GOLD @ $2000.00
+
+  >> JOHN_KEYNES | $300 | A:0 C:0 G:0 | E:7
+
+  Round 14 Summary: 1 trades | 8 offers
+
+──────────────────────────────────────────────────
+───────────── ROUND 15/20 (4 agents) ─────────────
+──────────────────────────────────────────────────
+  NEWS: Plague in the City
+
+  >> CHICO_BENTO | $200 | A:10 C:0 G:0 | E:36
+     [SELL #44] chico_bento offers 10 APPLE @ $100.00
+
+  >> WARREN_BUFFET | $4050 | A:30 C:7 G:16 | E:16
+     TRADE: warren_buffet sold 5 CHIP to john_keynes @ $250.00
+
+  >> JOHN_KEYNES | $100 | A:0 C:5 G:0 | E:6
+     [SELL #45] john_keynes offers 5 CHIP @ $200.00
+     BANKRUPT: JOHN_KEYNES ran out of cash!
+
+  >> DENG_XIAOPING | $4670 | A:58 C:0 G:0 | E:7
+     [SELL #46] deng_xiaoping offers 20 APPLE @ $200.00
+     [BUY #47] deng_xiaoping wants 5 CHIP for $250.00
+
+  Round 15 Summary: 1 trades | 6 offers
+
+──────────────────────────────────────────────────
+───────────── ROUND 16/20 (3 agents) ─────────────
+──────────────────────────────────────────────────
+  NEWS: Bountiful Harvest
+
+  >> WARREN_BUFFET | $4250 | A:30 C:2 G:16 | E:15
+
+  >> DENG_XIAOPING | $4320 | A:38 C:0 G:0 | E:6
+     [SELL #48] deng_xiaoping offers 10 APPLE @ $120.00
+     [BUY #49] deng_xiaoping wants 5 CHIP for $250.00
+
+  >> CHICO_BENTO | $200 | A:0 C:0 G:0 | E:35
+
+  Round 16 Summary: 0 trades | 8 offers
+
+──────────────────────────────────────────────────
+───────────── ROUND 17/20 (3 agents) ─────────────
+──────────────────────────────────────────────────
+  NEWS: New Investors Entering
+
+  >> WARREN_BUFFET | $4200 | A:30 C:2 G:16 | E:14
+
+  >> CHICO_BENTO | $200 | A:0 C:0 G:0 | E:34
+
+  >> DENG_XIAOPING | $3970 | A:28 C:0 G:0 | E:5
+     [CANCEL #41] deng_xiaoping cancelled buy offer (recovered $250.00)
+     [CANCEL #47] deng_xiaoping cancelled buy offer (recovered $250.00)
+     [CANCEL #49] deng_xiaoping cancelled buy offer (recovered $250.00)
+     [SELL #50] deng_xiaoping offers 10 APPLE @ $80.00
+
+  Round 17 Summary: 0 trades | 6 offers
+
+──────────────────────────────────────────────────
+───────────── ROUND 18/20 (3 agents) ─────────────
+──────────────────────────────────────────────────
+  NEWS: Technology Boom
+
+  >> DENG_XIAOPING | $4620 | A:17 C:0 G:0 | E:7
+     [CANCEL #46] deng_xiaoping cancelled sell offer (recovered 20 APPLE)
+     [CANCEL #48] deng_xiaoping cancelled sell offer (recovered 10 APPLE)
+     [SELL #51] deng_xiaoping offers 10 APPLE @ $100.00
+
+  >> CHICO_BENTO | $200 | A:0 C:0 G:0 | E:33
+
+  >> WARREN_BUFFET | $4150 | A:30 C:2 G:16 | E:13
+     TRADE: warren_buffet sold 5 GOLD to chico_bento @ $1000.00
+
+  Round 18 Summary: 1 trades | 4 offers
+
+──────────────────────────────────────────────────
+───────────── ROUND 19/20 (3 agents) ─────────────
+──────────────────────────────────────────────────
+  NEWS: Chip Factory Delays
+
+  >> WARREN_BUFFET | $5100 | A:30 C:2 G:11 | E:12
+     TRADE: warren_buffet bought 10 APPLE from deng_xiaoping @ $80.00
+     TRADE: warren_buffet bought 10 APPLE from chico_bento @ $100.00
+
+  >> DENG_XIAOPING | $4600 | A:37 C:0 G:0 | E:6
+     [CANCEL #51] deng_xiaoping cancelled sell offer (recovered 10 APPLE)
+
+  >> CHICO_BENTO | $300 | A:0 C:0 G:5 | E:32
+
+  Round 19 Summary: 2 trades | 1 offers
+
+──────────────────────────────────────────────────
+───────────── ROUND 20/20 (3 agents) ─────────────
+──────────────────────────────────────────────────
+  NEWS: Gold Rush
+
+  >> CHICO_BENTO | $300 | A:0 C:0 G:5 | E:31
+
+  >> DENG_XIAOPING | $4500 | A:47 C:0 G:0 | E:5
+     [CANCEL #43] deng_xiaoping cancelled sell offer (recovered 1 GOLD)
+
+  >> WARREN_BUFFET | $4870 | A:50 C:2 G:11 | E:11
+
+  Round 20 Summary: 0 trades | 0 offers
+
+============================================
+      SIMULATION COMPLETE (20 rounds)       
+    Survivors: 3 | Bankrupt: 6 | Dead: 1    
+============================================
+
+Generating simulation analytics plots...
+Saved price trends plot to plots//price_trends.png
+Saved net worth bump chart to plots//net_worth_bump_chart.png
+Saved energy-price correlation plot to plots//energy_price_correlation.png
+Saved volume vs cash plot to plots//volume_vs_cash.png
+Saved asset composition plot to plots//asset_composition.png
+All plots generated successfully in plots/
+Generated simulation plots in plots/ directory
