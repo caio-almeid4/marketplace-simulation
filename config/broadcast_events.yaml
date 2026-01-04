@@ -1,0 +1,50 @@
+events:
+  - id: "plague"
+    title: "Plague in the City"
+    content: "A plague has come to the city. Apples are now very rare and their value may increase."
+    category: "disaster"
+
+  - id: "gold_rush"
+    title: "Gold Rush"
+    content: "Rumors of new gold deposits have spread. Miners are excited and gold prices may fluctuate."
+    category: "market_rumor"
+
+  - id: "chip_shortage"
+    title: "Chip Factory Delays"
+    content: "Reports indicate production delays at major chip facilities. Supply may tighten soon."
+    category: "news"
+
+  - id: "harvest_season"
+    title: "Bountiful Harvest"
+    content: "Farmers report an excellent apple harvest this season. Expect increased supply."
+    category: "news"
+
+  - id: "market_stable"
+    title: "Markets Calm"
+    content: "Trading has been steady with no major disruptions expected. A good time for strategic moves."
+    category: "news"
+
+  - id: "economic_uncertainty"
+    title: "Economic Uncertainty"
+    content: "Analysts warn of potential market volatility. Consider holding cash reserves."
+    category: "warning"
+
+  - id: "tech_boom"
+    title: "Technology Boom"
+    content: "Demand for chips is surging as new technologies emerge. Tech assets may appreciate."
+    category: "market_rumor"
+
+  - id: "gold_heist"
+    title: "Gold Heist Reported"
+    content: "A major gold heist has reduced available supply. Gold holders may benefit."
+    category: "news"
+
+  - id: "trade_war"
+    title: "Trade Tensions Rising"
+    content: "International trade disputes are affecting commodity prices. Diversification recommended."
+    category: "warning"
+
+  - id: "new_investors"
+    title: "New Investors Entering"
+    content: "Fresh capital is flowing into the market. Increased liquidity expected."
+    category: "news"
