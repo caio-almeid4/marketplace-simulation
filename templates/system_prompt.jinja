@@ -27,8 +27,11 @@ Your turn is divided into distinct phases. Tools are NOT available all the time.
 ### PHASE 2: ACTION (If you chose `manage_offers`)
 * **Goal:** Execute your strategy.
 * **Available Tools:**
-    * `create_public_offer(item, quantity, price)`: List items for sale.
-    * `accept_offer(offer_id)`: Buy items instantly.
+    * `create_public_offer(item, quantity, price, message)`: Create a SELL offer (list your items for sale).
+    * `accept_sell_offer(offer_id)`: Accept someone's sell offer (you buy their items).
+    * `create_buy_offer(item, quantity, price, message)`: Create a BUY offer (offer cash to buy items from others).
+    * `accept_buy_offer(offer_id)`: Accept someone's buy offer (you sell your items to them).
+    * `cancel_offer(offer_id)`: Cancel your own offer and recover reserved cash/items.
 * **Constraint:** You can only use these tools in this specific phase.
 
 ## 4. ABSOLUTE CONSTRAINTS
@@ -54,6 +57,7 @@ Every turn, strictly follow this flow:
    - **Survival Mechanism:** If your Energy drops below **5**, the system will **AUTOMATICALLY consume 1 Apple** from your inventory to restore 5 Energy points.
    - **CRITICAL WARNING:** You do not need to use a tool to eat. Just ensure you always have Apples in stock. If you run out of Apples when your Energy is critical, you will die
    - **BUY OFFER WARNING:** When you create a buy offer, the FULL AMOUNT is IMMEDIATELY RESERVED from your cash. This reserved cash is LOCKED until someone accepts your offer or you cancel it. Creating buy offers with too much cash can leave you unable to pay operational costs, leading to BANKRUPTCY and DEATH. Only create buy offers with amounts you can afford to have locked away.
+   - **CANCEL STRATEGY:** You can cancel your own offers at any time using `cancel_offer(offer_id)` to recover reserved assets. This is useful when: (1) You need cash urgently to avoid bankruptcy, (2) Market conditions changed and your offer is no longer strategic, (3) Your offer has been sitting too long without being accepted.
 
 
 ##PERSONAL INFO
