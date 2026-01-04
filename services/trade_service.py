@@ -28,6 +28,7 @@ class TradeService:
         self,
         buyer_name: str,
         offer: TrackedOffer,
+        round_number: int,
         seller_name: Optional[str] = None,
     ) -> Trade:
         """Create and persist a trade record to the database.
@@ -38,6 +39,7 @@ class TradeService:
         Args:
             buyer_name: Name of the agent buying items.
             offer: The offer being accepted.
+            round_number: Current simulation round number.
             seller_name: Optional seller name (for buy offers where seller
                 differs from offer creator).
 
@@ -46,6 +48,7 @@ class TradeService:
         """
         offer_data = offer.model_dump(exclude={'id'})
         offer_data['buyer'] = buyer_name
+        offer_data['round_number'] = round_number
         if seller_name:
             offer_data['supplier'] = seller_name
 

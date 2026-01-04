@@ -134,7 +134,7 @@ class Market:
         )
         return f'{tracked_offer.model_dump()}'
 
-    def evaluate_sell_transaction(self, buyer_name: str, offer_id: int) -> str:
+    def evaluate_sell_transaction(self, buyer_name: str, offer_id: int, round_num: int) -> str:
         """Execute a sell transaction (buyer accepts a sell offer).
 
         Validates the offer exists and buyer has sufficient cash, then transfers
@@ -143,6 +143,7 @@ class Market:
         Args:
             buyer_name: Name of the agent accepting the offer.
             offer_id: ID of the sell offer to accept.
+            round_num: Current simulation round number.
 
         Returns:
             Success message with updated buyer inventory.
@@ -167,7 +168,9 @@ class Market:
             offer=offer,
         )
         del self._repository[offer.id]
-        self.trade_service.create_trade_db_registry(buyer_name=buyer_name, offer=offer)
+        self.trade_service.create_trade_db_registry(
+            buyer_name=buyer_name, offer=offer, round_number=round_num
+        )
 
         trade = UnitTrade(**offer.model_dump(), buyer=buyer_name)
         self._update_trade_history(trade)
@@ -179,7 +182,7 @@ class Market:
 
         return f'Offer accepted. Updated inventory: {buyer_inventory.model_dump()}'
 
-    def evaluate_buy_transaction(self, seller_name: str, offer_id: int) -> str:
+    def evaluate_buy_transaction(self, seller_name: str, offer_id: int, round_num: int) -> str:
         """Execute a buy transaction (seller accepts a buy offer).
 
         Validates the offer exists, is a buy offer, and seller has sufficient items.
@@ -189,6 +192,7 @@ class Market:
         Args:
             seller_name: Name of the agent accepting the buy offer.
             offer_id: ID of the buy offer to accept.
+            round_num: Current simulation round number.
 
         Returns:
             Success message with updated seller inventory.
@@ -230,7 +234,7 @@ class Market:
         )
         self._update_trade_history(trade)
         self.trade_service.create_trade_db_registry(
-            buyer_name=offer.supplier, offer=offer, seller_name=seller_name
+            buyer_name=offer.supplier, offer=offer, round_number=round_num, seller_name=seller_name
         )
 
         logger.success(

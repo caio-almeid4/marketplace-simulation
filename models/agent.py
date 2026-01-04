@@ -32,6 +32,7 @@ class Agent:
         graph: LangGraph workflow (analyze → route → manage_offers).
         tools: Trading tools available to the agent.
         is_alive: Whether the agent is still participating.
+        current_round: Current round number in the simulation.
     """
 
     def __init__(self, config: AgentConfig, tools: Dict[str, BaseTool] = {}):
@@ -51,6 +52,7 @@ class Agent:
         self.graph = self._build_graph()
         self.tools = tools
         self.is_alive = True
+        self.current_round = 0
 
     def _get_llm(self):
         """Create and configure the language model for this agent.

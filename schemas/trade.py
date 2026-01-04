@@ -19,6 +19,7 @@ class Trade:
     price: Mapped[float] = mapped_column(nullable=False)
     message: Mapped[str]
     offer_type: Mapped[str] = mapped_column(nullable=False)
+    round_number: Mapped[int] = mapped_column(nullable=False, index=True)
     created_at: Mapped[datetime] = mapped_column(init=False, server_default=func.now())
 
 

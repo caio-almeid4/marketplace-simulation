@@ -1,3 +1,4 @@
+from datetime import datetime
 from random import shuffle
 from typing import List, Optional
 
@@ -55,7 +56,6 @@ class Simulation:
         self.dead: List[Agent] = []
         self.inventory_service = inventory_service
         self.broadcast_service = broadcast_service
-        self.round_metrics = {}
 
     def run(self):
         """Execute the full simulation for the configured number of rounds.
@@ -85,6 +85,7 @@ class Simulation:
             for agent in agents_queue:
                 self._log_agent_turn(agent)
                 market_data = self.market.get_market_data()
+                agent.current_round = i
                 agent.run_turn(market_data=market_data, round_num=i)
                 self._collect_agent_payment(agent)
 
@@ -93,10 +94,6 @@ class Simulation:
 
             trades_this_round = len(self.market.get_trade_history()) - trades_before
             self._log_round_summary(i, trades_this_round, len(self.market._repository))
-            self._save_round_metrics(
-                round_num=i, 
-                round_trade_history=self.market.get_trade_history()[-trades_this_round:]
-            )
 
     def _provide_tools(self) -> None:
         """Inject trading tools into each agent.
@@ -218,22 +215,4 @@ class Simulation:
             f'A:{inv.apple} C:{inv.chip} G:{inv.gold} | '
             f'E:{agent.energy}'
         )
-
-    def _save_round_metrics(self, round_num: int, round_trade_history: List[UnitTrade]):
         
-        metrics = {}
-        items = ['apple', 'chip', 'gold']
-        items_info = {
-            item: [0.0, 0] for item in items
-        }
-        for trade in round_trade_history:
-            items_info[trade.item][0] += trade.price
-            items_info[trade.item][1] += 1
-            
-        
-        items_average_price = {
-            item: info[0] / info[1] for item, info in items_info.items()
-        }
-        
-        metrics['item_average_price'] = items_average_price
-        self.round_metrics[round_num] = metrics

@@ -69,7 +69,7 @@ def create_trade_tools(agent: Agent, market: Market) -> Dict[str, BaseTool]:
         """
         try:
             return market.evaluate_sell_transaction(
-                buyer_name=agent.name, offer_id=offer_id
+                buyer_name=agent.name, offer_id=offer_id, round_num=agent.current_round
             )
         except ValueError as e:
             return f'Error: {e}'
@@ -123,7 +123,7 @@ def create_trade_tools(agent: Agent, market: Market) -> Dict[str, BaseTool]:
         """
         try:
             return market.evaluate_buy_transaction(
-                seller_name=agent.name, offer_id=offer_id
+                seller_name=agent.name, offer_id=offer_id, round_num=agent.current_round
             )
         except ValueError as e:
             return f'Error: {e}'
