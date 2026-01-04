@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import Dict, List
 
 from loguru import logger
 
@@ -44,7 +44,7 @@ class Market:
         self.agents = agents
         self._id_gen = id_gen
         self.trade_service = trade_service
-        self._trade_history = []
+        self._trade_history: List[UnitTrade] = []
 
     def clear_repository(self) -> None:
         """Clear all offers from the repository."""
@@ -376,3 +376,6 @@ class Market:
                 else:
                     agent_inventory.cash += offer.price
             del self._repository[id]
+
+    def get_trade_history(self):
+        return self._trade_history
