@@ -22,6 +22,7 @@ The system is built using Python and LangGraph, following a strictly modular arc
 
 ### Project Structure
 
+```bash
 ├── agents/
 │   ├── configs/            # Agent personality configurations (.yaml)
 │   └── state.py            # LangGraph state definitions
@@ -36,6 +37,7 @@ The system is built using Python and LangGraph, following a strictly modular arc
 ├── utils/                  # Helper functions (Tools factory, rendering)
 ├── run_simulation.py       # Main entry point script
 └── pyproject.toml          # Project dependencies
+```
 
 ### Core Components
 
