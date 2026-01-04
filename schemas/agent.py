@@ -21,6 +21,7 @@ class AgentConfig(BaseModel):
     personality_info: PersonalityInfo
     energy: PositiveInt
     operational_cost: float = Field(ge=0)
+    model: str = Field(default='gpt-4o-mini')
 
 
 class AgentResponse:
