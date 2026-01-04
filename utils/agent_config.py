@@ -31,7 +31,6 @@ def load_agent_config(name: str):
         personality_info=PersonalityInfo(**config),
         energy=config['energy'],
         operational_cost=config['operational_cost'],
-        model=config['model'],
     )
 
 
