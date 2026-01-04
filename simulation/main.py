@@ -79,6 +79,18 @@ class Simulation:
             shuffle(agents_queue)
 
             self._log_round_header(i, len(agents_queue), total_rounds)
+
+            # End simulation early if insufficient agents remain
+            if len(agents_queue) <= 1:
+                if len(agents_queue) == 1:
+                    logger.info(
+                        f'\nSimulation ended early: Only {agents_queue[0].name} remains alive. '
+                        f'No competition possible.\n'
+                    )
+                else:
+                    logger.warning('\nSimulation ended early: All agents eliminated.\n')
+                break
+
             self._broadcast_event(agents_queue)
             
             trades_before = len(self.market.get_trade_history())
